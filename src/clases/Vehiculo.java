@@ -5,7 +5,7 @@ import excepciones.PrecioInvalidoException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Vehiculo {
+public abstract class Vehiculo implements Comparable <Vehiculo>  {
     private String tipo;
     private String marca;
     private String modelo;
@@ -88,6 +88,11 @@ public abstract class Vehiculo {
                 ", \ncaracteristicas=" + caracteristicas +
                 ", \nfabricante=" + fabricante +
                 '}' + "\n============";
+    }
+
+    @Override
+    public int compareTo(Vehiculo o) {
+        return Double.compare (this.precio, o.getPrecio());
     }
 }
 

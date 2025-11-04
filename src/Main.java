@@ -1,29 +1,32 @@
 import clases.*;
 import manejoJSON.GestionJSON;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
+
+        // 1) Cargar desde JSON
         Concesionaria concesionaria = GestionJSON.mapeoConcesionaria();
 
+        // 2) Tomar el inventario que quedó dentro de la Concesionaria
+        Inventario<Vehiculo> inventario = concesionaria.getInventario();
 
-
-
-
-
-
-
-
-        // ----- Crear inventario -----
-        Inventario<Vehiculo> inventario = new Inventario<>();
-
-
+        // 3) Verificación rápida
+        System.out.println("Vehículos cargados: " + inventario.getVehiculos().size());
+        for (Vehiculo v : inventario.getVehiculos()) {
+            System.out.println(v);
+        }
         // -----  Usar filtros -----
 
+        System.out.println("\n===============Filtros===================\n");
         // Filtro 1: Precio + país
-        List<String> paises = List.of("Italia", "Alemania");
+        List<String> paises = new ArrayList<>();
+        paises.add("Italia");
+        paises.add("Alemania");
+
         List<Vehiculo> caros = inventario.filtrarPorPrecioYProveedores(100000, paises);
         System.out.println("Vehículos caros de Italia o Alemania:");
         for (Vehiculo v : caros) {
@@ -45,5 +48,13 @@ public class Main {
         for (Vehiculo v : recientes) {
             System.out.println(v);
         }
+
+        //listar vehiculos ordenados
+        System.out.println("\nVehículos ordenados por precio:");
+        for (Vehiculo v : inventario.listarVehiculos()) {
+            System.out.println(v);
+
+        }
+
     }
 }

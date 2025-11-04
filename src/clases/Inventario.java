@@ -4,6 +4,7 @@ import excepciones.PrecioInvalidoException;
 import clases.Fabricante;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Inventario <T extends Vehiculo> {
@@ -87,7 +88,6 @@ public class Inventario <T extends Vehiculo> {
 
 
 
-
     //Filtrar vehículos fabricados después de 2020 (anioMin),
     //con al menos tres características registradas (minCaract),
     // y cuyo proveedor no sea de "EEUU" (!paisExcluido)
@@ -109,6 +109,15 @@ public class Inventario <T extends Vehiculo> {
         return filtrados;
     }
 
+    public void ordenarXPrecio(){
+        Collections.sort(vehiculos);
+    }
+
+    public List<T> listarVehiculos(){
+
+           return vehiculos;
+
+    }
 
 
     //(*)

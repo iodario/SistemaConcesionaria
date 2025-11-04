@@ -1,6 +1,6 @@
 package clases;
 
-public class Camioneta {
+public class Camioneta extends Vehiculo{
     private String traccion;
 
     public Camioneta() {

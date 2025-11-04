@@ -39,7 +39,7 @@ public class Inventario <T extends Vehiculo> {
 
         for ( T v : vehiculos) {
             Fabricante f = v.getFabricante();
-            String pais = (f == null) ? null : f.getPais();
+            String pais = f.getPais();
 
             if (v.getPrecio() >= precioMin && pais != null) {
                 for (String p : paises) {
@@ -97,7 +97,7 @@ public class Inventario <T extends Vehiculo> {
         List<T> filtrados = new ArrayList<>();
         for (T v : vehiculos) {
             Fabricante f = v.getFabricante();
-            String pais = (f == null) ? null : f.getPais();
+            String pais = f.getPais();
 
             if (v.getAnio() > anioMin &&
                     v.getCaracteristicas() != null && v.getCaracteristicas().size() >= minCaract
